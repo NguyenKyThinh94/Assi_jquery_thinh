@@ -9,10 +9,11 @@ $(document).ready(function () {
             userName: 'ÁDFGH'
         }
     ]
+    let rowEdit;
 
     function drawRow(rowData, index) {
         
-        var row = $('<tr> <th scope="row"><input type="radio" name="choose" data-index="' + index + '" id=""></th>/>')
+        var row = $('<tr data-index="'+ index +'"> <th scope="row"><input type="radio" name="choose" data-index="' + index + '"></th></tr>')
         $("#bodyTable").append(row); 
         row.append($("<td>" + rowData.code + "</td>"));
         row.append($("<td>" + rowData.name + "</td>"));
@@ -108,6 +109,7 @@ $(document).ready(function () {
         let row=$('[type="radio"]:checked')[0];
         let index=parseInt(row.dataset.index);
         let editUser=users[index];
+        rowEdit= $('[type="radio"]:checked').parent().parent();
         $("#name").val(editUser.name);
         $("#address").val(editUser.address);
         $("#pass").val(editUser.password);
@@ -115,6 +117,8 @@ $(document).ready(function () {
         $("#email").val(editUser.email);
         $("#userName").val(editUser.userName);
         $("#formUser")[0].dataset.index=index;
+        
+        rowEdit.hide();
       })
     $("#saveButton").click( function() {
         let formOK=$("#formUser").valid();
