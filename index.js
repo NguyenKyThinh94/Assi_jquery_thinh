@@ -88,7 +88,6 @@ $(document).ready(function () {
             newUser.email=$("#email").val();
             newUser.userName=$("#userName").val();
             users.push(newUser);
-            console.log(users);
             drawTable(users);
             $('#formUser').trigger("reset");
             $("#name").focus();
@@ -132,7 +131,6 @@ $(document).ready(function () {
             newUser.email=$("#email").val();
             newUser.userName=$("#userName").val();
             users[index]=newUser;
-            console.log(users);
             drawTable(users);
             $('#formUser').trigger("reset");
             $("#name").focus();
@@ -144,8 +142,4 @@ $(document).ready(function () {
             location.reload();      
           })
     drawTable(users);
-
-
-    
-
 });
